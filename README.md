@@ -16,7 +16,7 @@ El proceso que hace el updater es el siguiente:
 
     - Configuración de la App
     - Lista de Scripts
-    - Lista de Colecciones
+    - Lista de collcoColecciones
 
 3) Para cada item comprobamos si lo que hay en Corus es diferente del JSON que consta en el updater.
    Si es igual no hacemos nada (mostramos por pantalla que el archivo ya está actualizado).

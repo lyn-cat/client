@@ -31,7 +31,10 @@
   },
   "homepage": "https://github.com/lyn-cat/client#readme",
   "dependencies": {
-    "corus": "0.0.17"
+    "async": "^1.5.2",
+    "commander-plus": "0.0.6",
+    "corus": "0.0.17",
+    "figlet": "^1.1.2"
   },
   "devDependencies": {
     "tap": "^5.4.2"
