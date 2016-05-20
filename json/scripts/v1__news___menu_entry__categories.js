@@ -1,8 +1,5 @@
 /*
  * REST Resource: v1/news/:menu_entry/categories
- *
- * URL for this resource: http://lyncat.corus.io/custom/dev_lyncat/v1/news/:menu_entry/categories
- *
  */
 
 var Corus 				= require('corus'),

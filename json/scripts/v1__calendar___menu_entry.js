@@ -1,8 +1,5 @@
 /*
  * REST Resource: v1/calendar/:menu_entry
- *
- * URL for this resource: http://lyncat.corus.io/custom/dev_lyncat/v1/calendar/:menu_entry
- *
  */
 
 var Corus 				= require('corus'),

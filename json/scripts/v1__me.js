@@ -1,8 +1,5 @@
 /*
  * REST Resource: v1/me
- *
- * URL for this resource: http://lyncat.corus.io/custom/dev_lyncat/v1/me
- *
  */
 
 var Corus 		= require('corus'),

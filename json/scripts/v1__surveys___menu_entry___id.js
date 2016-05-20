@@ -1,8 +1,5 @@
 /*
  * REST Resource: v1/surveys/:menu_entry/:id
- *
- * URL for this resource: http://lyncat.corus.io/custom/dev_lyncat/v1/surveys/:menu_entry/:id
- *
  */
 
 var Corus 				= require('corus'),
