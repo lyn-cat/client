@@ -1,4 +1,4 @@
-# lyncat
+# Lyncat Client
 
 Updater automático de lyncat. El proceso es el siguiente:
 
@@ -27,6 +27,7 @@ Updater automático de lyncat. El proceso es el siguiente:
     - Archivos que no se pueden actualizar (se han modificado manualmente)
 
 5) El usuario Acepta o Rechaza: Si Acepta se aplicarán los cambios, si no NO.
+   En caso de aceptar los cambios se guardará una copia del estado actual en Corus (para poder hacer Rollback)
 
 
 ## Actualización de app:
