@@ -8,22 +8,27 @@ var lyncat = require('../lib');
 var async = require('async');
 var program = require('commander-plus');
 var figlet = require('figlet');
+var os = require('os');
+var path = require('path');
+var fs = require('fs-extra');
+var moment = require('moment');
 
 /**
  * Properties
  */
 
-var STEP = 0;
+var DOWNLOADS_FOLDER =  path.join(os.homedir(), '/lyncat/downloads');
 var COMMANDS = ['download', 'update'];
 var CURRENT_COMMAND = null;
 var CURRENT_HOST = null;
 var CURRENT_APP = null;
+var CURRENT_PASSWORD = null;
+var CURRENT_DOWNLOAD_FOLDER = null;
 
 /**
  * Private Methods
  */
 
-var ask
 
 /**
  * Promp Methods
@@ -66,6 +71,57 @@ var askApp = function(callback){
 
 };
 
+var askPassword = function(callback){
+
+    program.password('\nPassword de usuario Super-Administrador: ', '*', function(i){
+
+        CURRENT_PASSWORD = i;
+        return callback(null);
+
+    });
+
+};
+
+var askDownload = function(callback){
+
+    async.waterfall(
+
+        [
+
+            function(cb){
+
+                var downloadName = CURRENT_HOST.replace('.', '__') + '-' + CURRENT_APP + '-' + (moment().format('YYYYMMDDHHmmss'));
+
+                CURRENT_DOWNLOAD_FOLDER = path.join(DOWNLOADS_FOLDER, downloadName);
+
+                program.confirm('\nSe descargará en en ' + CURRENT_DOWNLOAD_FOLDER + ' [yes/no]:', function(ok){
+
+                    if(ok !== 'yes'){
+
+                        process.exit();
+
+                    } else {
+
+                        return cb(null);
+
+                    }
+
+                });
+
+            },
+
+            function(cb){
+
+
+
+            }
+
+        ]
+
+    );
+
+};
+
 /**
  * Init
  */
@@ -73,6 +129,30 @@ var askApp = function(callback){
 async.series(
 
     [
+
+        function(cb){
+
+            //Creamos la carpeta de descargas si no existe
+
+            fs.ensureDir(DOWNLOADS_FOLDER, function(err){
+
+                return cb(err);
+
+            });
+
+        },
+
+        function(cb){
+
+            //Chequeamos que tengamos permisos para read/write
+
+            fs.access(DOWNLOADS_FOLDER, fs.R_OK | fs.W_OK, function(err){
+
+                return cb(err);
+
+            });
+
+        },
 
         function(cb){
 
@@ -126,12 +206,54 @@ async.series(
 
             });
 
+        },
+
+        function(cb){
+
+            //Guardamos el valor de CURRENT_PASSWORD
+
+            askPassword(function(err){
+
+                return cb(err);
+
+            });
+
+        },
+
+        function(cb){
+
+            if(CURRENT_COMMAND === 'download'){
+
+                askDownload(function(err){
+
+                    return cb(err);
+
+                });
+
+            } else if(CURRENT_COMMAND === 'upload'){
+
+
+            } else {
+
+                console.error('Invalid command');
+
+            }
+
         }
 
     ],
 
     function(err){
 
+        if(err){
+
+            console.error(JSON.stringify(err));
+
+        } else {
+
+            return;
+
+        }
 
     }
 

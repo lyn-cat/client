@@ -34,7 +34,9 @@
     "async": "^1.5.2",
     "commander-plus": "0.0.6",
     "corus": "0.0.17",
-    "figlet": "^1.1.2"
+    "figlet": "^1.1.2",
+    "fs-extra": "^0.30.0",
+    "moment": "^2.13.0"
   },
   "devDependencies": {
     "tap": "^5.4.2"
