@@ -4,19 +4,19 @@ Updater automático de lyncat.
 
 Instalación:
 
-npm install -g lyncat
+*npm install -g lyncat*
 
 ## ¿Como funciona?
 
-El proceso es el siguiente:
+El proceso que hace el updater es el siguiente:
 
-1) Nos conectamos a corus usando el user "admin".
+1) Se conectamos a corus usando el user "admin" (tras solicita host y password)
 
-2) Recuperamos de Corus:
+2) Recupera de Corus los siguientes elementos:
 
-    - App
-    - Scripts
-    - Colecciones
+    - Configuración de la App
+    - Lista de Scripts
+    - Lista de Colecciones
 
 3) Para cada item comprobamos si lo que hay en Corus es diferente del JSON que consta en el updater.
    Si es igual no hacemos nada (mostramos por pantalla que el archivo ya está actualizado).
@@ -48,7 +48,7 @@ El proceso es el siguiente:
 * data.json:
 
   Contiene los campos del "data" de la app que hay que actualizar en esta versión.
-  Como mínimo siempre incluirá el campo version (que se actualiza en cada nueva versión).
+  Como mínimo siempre debería incluir el campo version (que se actualiza en cada nueva versión).
 
 
 
