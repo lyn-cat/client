@@ -1,6 +1,14 @@
 # Lyncat Client
 
-Updater automático de lyncat. El proceso es el siguiente:
+Updater automático de lyncat.
+
+Instalación:
+
+npm install -g lyncat
+
+## ¿Como funciona?
+
+El proceso es el siguiente:
 
 1) Nos conectamos a corus usando el user "admin".
 
@@ -18,7 +26,7 @@ Updater automático de lyncat. El proceso es el siguiente:
       opción de actualizarlo (S/N).
 
     - Si el campo modifiedBy no es "admin": El archivo ha sido modificado manualmente. Informamos al usuario
-      que el item se debe actualizar a mano.
+      que el archivo se debe actualizar a mano.
 
 4) Mostramos al usuario el resumen final:
 
@@ -30,9 +38,17 @@ Updater automático de lyncat. El proceso es el siguiente:
    En caso de aceptar los cambios se guardará una copia del estado actual en Corus (para poder hacer Rollback)
 
 
-## Actualización de app:
+### Actualización de app:
 
+* fields.json:
 
+  Array de campos de aplicación con los que se reemplazarán los campos existentes.
+  Si el array está vacío (o el fichero no existe) no se hará nada.
+
+* data.json:
+
+  Contiene los campos del "data" de la app que hay que actualizar en esta versión.
+  Como mínimo siempre incluirá el campo version (que se actualiza en cada nueva versión).
 
 
 
