@@ -5,6 +5,8 @@
  *
  * var auth = require('/custom_modules/auth');
  *
+ * Versión: 1.0 => First Commit
+ *
  */
 
 var async = require('async');

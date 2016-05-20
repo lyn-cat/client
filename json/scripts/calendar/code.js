@@ -5,6 +5,8 @@
  *
  * var calendar = require('/custom_modules/calendar');
  *
+ * Versión: 1.0 => First Commit
+ *
  */
 
 var async = require('async');

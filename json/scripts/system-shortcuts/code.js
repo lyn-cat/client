@@ -1,6 +1,7 @@
 /*
  * System Script: system-shortcuts
  *
+ * Versión: 1.0 => First Commit
  *
  * Execution Environment:
  *

@@ -1,5 +1,8 @@
 /*
  * Scheduled Task: scheduled_notifications
+ *
+ * Versión: 1.0 => First Commit
+ *
  */
 
 var Corus = require('corus');

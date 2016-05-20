@@ -9,8 +9,6 @@
 
 var async = require('async');
 
-
-
 exports.updateQuestionResults = function(corus, question, callback){
 
     async.waterfall(

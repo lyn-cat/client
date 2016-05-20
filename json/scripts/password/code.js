@@ -5,6 +5,8 @@
  *
  * var password = require('/custom_modules/password');
  *
+ * Versión: 1.0 => First Commit
+ *
  */
 
 function decode(text) {

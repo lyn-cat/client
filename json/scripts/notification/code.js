@@ -5,6 +5,8 @@
  *
  * var notification = require('/custom_modules/notification');
  *
+ * Versión: 1.0 => First Commit
+ *
  */
 
 /**
