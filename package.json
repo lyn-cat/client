@@ -1,0 +1,39 @@
+{
+  "name": "lyncat",
+  "version": "0.0.1",
+  "description": "Lyncat JS Client (http://lyn.cat)",
+  "bin": {
+    "lyncat": "bin/lyncat.js"
+  },
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "config": {
+    "HOST": "localhost:8080",
+    "USER": "test_user@start.cat",
+    "PASSWORD": "Password123"
+  },
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lyn-cat/client.git"
+  },
+  "keywords": [
+    "lyncat"
+  ],
+  "author": "Juan Carlos Viñas <juancarlos.vinas@lyn.cat> (http://lyn.cat)",
+  "license": "Apache",
+  "bugs": {
+    "url": "https://github.com/lyn-cat/client/issues"
+  },
+  "homepage": "https://github.com/lyn-cat/client#readme",
+  "dependencies": {
+    "corus": "0.0.17"
+  },
+  "devDependencies": {
+    "tap": "^5.4.2"
+  }
+}
