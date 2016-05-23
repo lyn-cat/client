@@ -12,18 +12,24 @@ var os = require('os');
 var path = require('path');
 var fs = require('fs-extra');
 var moment = require('moment');
+var util = require('util');
+var exec = require('child_process').exec;
+var packageJson = require('../package.json');
+var Spinner = require('cli-spinner').Spinner;
+var colors = require('colors');
 
 /**
  * Properties
  */
 
 var DOWNLOADS_FOLDER =  path.join(os.homedir(), '/lyncat/downloads');
-var COMMANDS = ['download', 'update'];
 var CURRENT_COMMAND = null;
 var CURRENT_HOST = null;
 var CURRENT_APP = null;
+var CURRENT_KEY = null;
 var CURRENT_PASSWORD = null;
 var CURRENT_DOWNLOAD_FOLDER = null;
+var CONFIG = packageJson.config;
 
 /**
  * Private Methods
@@ -34,27 +40,20 @@ var CURRENT_DOWNLOAD_FOLDER = null;
  * Promp Methods
  */
 
-var askCommand = function(callback){
-
-    console.log('\n¡Hola! Esta es la herramienta cliente de Lyncat.');
-
-    console.log('\nElige que quieres hacer: Descargar (download) o Actualizar (update): \n');
-
-    program.choose(COMMANDS, function(i){
-
-        CURRENT_COMMAND = COMMANDS[i];
-        return callback(null);
-
-    });
-
-};
-
 var askHost = function(callback){
 
-    program.promptSingleLine('\nHost al que quieres conectar (ej:lyncat.corus.io): ', function(i){
+    program.promptSingleLine(colors.magenta('1)') + ' Host al que quieres conectar (ej:lyncat.corus.io): ', function(i){
 
-        CURRENT_HOST = i;
-        return callback(null);
+        if(i) {
+
+            CURRENT_HOST = i;
+            return callback(null);
+
+        } else {
+
+            askHost(callback);
+
+        }
 
     });
 
@@ -62,9 +61,29 @@ var askHost = function(callback){
 
 var askApp = function(callback){
 
-    program.promptSingleLine('\nApp que quieres descargar/actualizar (ej:dev-lyncat): ', function(i){
+    program.promptSingleLine(colors.magenta('2)') + ' App que quieres descargar/actualizar (ej:dev-lyncat): ', function(i){
 
-        CURRENT_APP = i;
+
+        if(i) {
+
+            CURRENT_APP = i;
+            return callback(null);
+
+        } else {
+
+            askApp(callback);
+
+        }
+
+    });
+
+};
+
+var askKey = function(callback){
+
+    program.password(colors.magenta('2)') + ' Key de usuario Super-Administrador de ' + CONFIG.HOST + ': ', '*', function(i){
+
+        CURRENT_KEY = i;
         return callback(null);
 
     });
@@ -73,7 +92,7 @@ var askApp = function(callback){
 
 var askPassword = function(callback){
 
-    program.password('\nPassword de usuario Super-Administrador: ', '*', function(i){
+    program.password(colors.magenta('4)') + ' Password de usuario Super-Administrador de ' + CURRENT_HOST + ': ', '*', function(i){
 
         CURRENT_PASSWORD = i;
         return callback(null);
@@ -82,53 +101,31 @@ var askPassword = function(callback){
 
 };
 
-var askDownload = function(callback){
 
-    async.waterfall(
-
-        [
-
-            function(cb){
-
-                var downloadName = CURRENT_HOST.replace('.', '__') + '-' + CURRENT_APP + '-' + (moment().format('YYYYMMDDHHmmss'));
-
-                CURRENT_DOWNLOAD_FOLDER = path.join(DOWNLOADS_FOLDER, downloadName);
-
-                program.confirm('\nSe descargará en en ' + CURRENT_DOWNLOAD_FOLDER + ' [yes/no]:', function(ok){
-
-                    if(ok !== 'yes'){
-
-                        process.exit();
-
-                    } else {
-
-                        return cb(null);
-
-                    }
-
-                });
-
-            },
-
-            function(cb){
-
-
-
-            }
-
-        ]
-
-    );
-
-};
 
 /**
  * Init
  */
 
+
+// Indicamos cual será el spinner por defecto
+
+Spinner.setDefaultSpinnerString(18);
+
 async.series(
 
     [
+
+        function(cb){
+
+            exec('clear', function(error, stdout, stderr){
+
+                util.puts(stdout);
+                return cb(null);
+
+            });
+
+        },
 
         function(cb){
 
@@ -162,21 +159,10 @@ async.series(
 
                 if(!err){
 
-                    console.log(data)
+                    console.log(colors.magenta(data));
+                    console.log('\n');
 
                 }
-
-                return cb(err);
-
-            });
-
-        },
-
-        function(cb){
-
-            //Guardamos el valor de CURRENT_COMMAND
-
-            askCommand(function(err){
 
                 return cb(err);
 
@@ -210,6 +196,18 @@ async.series(
 
         function(cb){
 
+            //Guardamos el valor de CURRENT_SOURCE_PASSWORD
+
+            askKey(function(err){
+
+                return cb(err);
+
+            });
+
+        },
+
+        function(cb){
+
             //Guardamos el valor de CURRENT_PASSWORD
 
             askPassword(function(err){
@@ -222,22 +220,11 @@ async.series(
 
         function(cb){
 
-            if(CURRENT_COMMAND === 'download'){
-
-                askDownload(function(err){
-
-                    return cb(err);
-
-                });
-
-            } else if(CURRENT_COMMAND === 'upload'){
+            var spinner = new Spinner('Descargando versión actual desde ' + CONFIG.HOST + '...');
+            spinner.start();
 
 
-            } else {
 
-                console.error('Invalid command');
-
-            }
 
         }
 

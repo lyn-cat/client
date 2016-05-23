@@ -10,9 +10,8 @@
     "lib"
   ],
   "config": {
-    "HOST": "localhost:8080",
-    "USER": "test_user@start.cat",
-    "PASSWORD": "Password123"
+    "HOST": "lyncat.corus.io",
+    "APP": "dev_lyncat"
   },
   "scripts": {
     "test": "tap test/*.js"
@@ -32,13 +31,16 @@
   "homepage": "https://github.com/lyn-cat/client#readme",
   "dependencies": {
     "async": "^1.5.2",
+    "cli-spinner": "^0.2.5",
+    "colors": "^1.1.2",
     "commander-plus": "0.0.6",
     "corus": "0.0.17",
     "figlet": "^1.1.2",
     "fs-extra": "^0.30.0",
-    "moment": "^2.13.0"
+    "moment": "^2.13.0",
+    "request": "^2.72.0"
   },
   "devDependencies": {
-    "tap": "^5.4.2"
+    "tap": "^5.7.1"
   }
 }
