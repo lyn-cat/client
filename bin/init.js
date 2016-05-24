@@ -40,7 +40,7 @@ var CONFIG = packageJson.config;
  * Constants
  */
 
-var ADMIN_KEY = 'PimPamFricando!';
+var ADMIN_KEY = '';
 
 
 /**
