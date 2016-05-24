@@ -14,7 +14,6 @@ var fs = require('fs-extra');
 var moment = require('moment');
 var util = require('util');
 var exec = require('child_process').exec;
-var packageJson = require('../package.json');
 var Spinner = require('cli-spinner').Spinner;
 var colors = require('colors');
 var Table = require('cli-table');
@@ -231,6 +230,7 @@ async.series(
 
                 if(ok !== 'yes'){
 
+                    console.log('\n');
                     process.exit();
 
                 } else {

@@ -10,8 +10,7 @@
     "lib"
   ],
   "config": {
-    "HOST": "lyncat.corus.io",
-    "APP": "dev_lyncat"
+
   },
   "scripts": {
     "test": "tap test/*.js"
@@ -39,6 +38,7 @@
     "figlet": "^1.1.2",
     "fs-extra": "^0.30.0",
     "moment": "^2.13.0",
+    "progress": "^1.1.8",
     "request": "^2.72.0"
   },
   "devDependencies": {

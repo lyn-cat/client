@@ -151,7 +151,6 @@ async.series(
 
                     fs.writeJsonSync(appFolder + '/modules.json', json.modules, {spaces: 4});
 
-
                     return cb(null);
 
                 }
