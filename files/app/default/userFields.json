@@ -1,0 +1,17 @@
+[
+    {
+        "type": "array",
+        "order": 10,
+        "settings": {
+            "type": "lookup",
+            "collection": "user_tags"
+        },
+        "name": "tags",
+        "displayName": "User tags",
+        "isReadOnly": false,
+        "isRequired": false,
+        "isHidden": false,
+        "entity": "user",
+        "slug": "user"
+    }
+]

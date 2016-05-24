@@ -1,0 +1,5 @@
+{
+    "slug": "v1/surveys/:menu_entry/:id",
+    "timeout": 0,
+    "description": ""
+}

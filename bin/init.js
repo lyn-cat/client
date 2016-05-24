@@ -23,30 +23,29 @@ var colors = require('colors');
  */
 
 var DOWNLOADS_FOLDER =  path.join(__dirname, '/../files');
-var CURRENT_COMMAND = null;
-var CURRENT_HOST = null;
-var CURRENT_APP = null;
-var CURRENT_KEY = null;
-var CURRENT_PASSWORD = null;
-var CURRENT_DOWNLOAD_FOLDER = null;
-var CONFIG = packageJson.config;
+var ADMIN_KEY = '';
 
 /**
  * Private Methods
  */
 
+var cleanSlug = function(slug){
 
-/**
- * Constants
- */
+    return slug.replace(new RegExp('/:', 'g'), '___').replace(new RegExp('/', 'g'), '__');
 
-var ADMIN_KEY = '';
+};
 
+var cleanScript = function(json){
+
+    delete json.type;
+    delete json.code;
+    return json;
+
+};
 
 /**
  * Init
  */
-
 
 async.series(
 
@@ -106,15 +105,53 @@ async.series(
 
                     json.collections.forEach(function(item){
 
-                        var collectionFolder = collectionsFolder + '/' + item.slug;
+                        var collectionFolder = collectionsFolder + '/' + item.slug + '/default';
 
                         fs.ensureDirSync(collectionFolder);
 
-                        fs.writeJsonSync(collectionFolder + '/default.json', item, {spaces: 4});
+                        fs.writeJsonSync(collectionFolder + '/settings.json', item, {spaces: 4});
 
                     });
 
                     //Creamos los scripts
+
+                    var scriptsFolder = DOWNLOADS_FOLDER + '/scripts';
+
+                    fs.ensureDirSync(scriptsFolder);
+
+                    //Creamos una carpeta por cada tipo de script
+
+                    fs.ensureDirSync(scriptsFolder + '/collectionTrigger');
+
+                    fs.ensureDirSync(scriptsFolder + '/resource');
+
+                    fs.ensureDirSync(scriptsFolder + '/system');
+
+                    fs.ensureDirSync(scriptsFolder + '/scheduledTask');
+
+                    //Creamos una carpeta por cada script
+
+                    json.scripts.forEach(function(item){
+
+                        var scriptFolder = scriptsFolder + '/' + item.type  + '/' + cleanSlug(item.slug) + '/default';
+
+                        fs.ensureDirSync(scriptFolder);
+
+                        fs.writeJsonSync(scriptFolder + '/code.js', item.code, {spaces: 4});
+
+                        fs.writeJsonSync(scriptFolder + '/settings.json', cleanScript(item), {spaces: 4});
+
+                    });
+
+                    //Creamos la carpeta para settings de app
+
+                    var appFolder = DOWNLOADS_FOLDER + '/app/default';
+
+                    fs.ensureDirSync(appFolder);
+
+                    fs.writeJsonSync(appFolder + '/appFields.json', json.appFields, {spaces: 4});
+
+                    fs.writeJsonSync(appFolder + '/userFields.json', json.userFields, {spaces: 4});
 
                     return cb(null);
 

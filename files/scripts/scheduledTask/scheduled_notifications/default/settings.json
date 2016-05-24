@@ -1,0 +1,8 @@
+{
+    "slug": "scheduled_notifications",
+    "interval": "*/5 * * * *",
+    "description": "",
+    "isDisabled": false,
+    "timeout": 0,
+    "nextExecutionOn": "2016-05-20T10:55:00.162Z"
+}

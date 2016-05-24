@@ -1,0 +1,73 @@
+[
+    {
+        "type": "string",
+        "order": 10,
+        "settings": {},
+        "name": "version",
+        "displayName": "Version",
+        "help": "Internal Version",
+        "isReadOnly": false,
+        "isRequired": false,
+        "entity": "app",
+        "slug": "app"
+    },
+    {
+        "type": "string",
+        "order": 20,
+        "settings": {},
+        "name": "default_language",
+        "displayName": "Default language",
+        "isReadOnly": false,
+        "isRequired": false,
+        "entity": "app",
+        "slug": "app"
+    },
+    {
+        "type": "boolean",
+        "order": 30,
+        "settings": {},
+        "name": "comments_enabled",
+        "displayName": "Contents comments enabled",
+        "isReadOnly": false,
+        "isRequired": false,
+        "entity": "app",
+        "slug": "app",
+        "help": "Allow users to add comments to contents"
+    },
+    {
+        "type": "boolean",
+        "order": 40,
+        "settings": {},
+        "name": "sharing_enabled",
+        "displayName": "Content sharing enabled",
+        "isReadOnly": false,
+        "isRequired": false,
+        "entity": "app",
+        "slug": "app",
+        "help": "Allow users to share contents"
+    },
+    {
+        "type": "file",
+        "order": 50,
+        "settings": {},
+        "name": "loader_image",
+        "displayName": "Splash Loader Image",
+        "isRequired": false,
+        "isReadOnly": false,
+        "entity": "app",
+        "slug": "app",
+        "isPublic": true
+    },
+    {
+        "type": "file",
+        "order": 60,
+        "settings": {},
+        "name": "profile_background_image",
+        "displayName": "Profile Background Image",
+        "isRequired": false,
+        "isReadOnly": false,
+        "isPublic": true,
+        "entity": "app",
+        "slug": "app"
+    }
+]
