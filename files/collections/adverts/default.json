@@ -1,0 +1,116 @@
+{
+    "slug": "adverts",
+    "name": "Adverts",
+    "fields": [
+        {
+            "type": "lookup",
+            "order": 10,
+            "settings": {
+                "collection": "subapps",
+                "reverseIsActive": false,
+                "reverseName": null,
+                "reverseHelp": null
+            },
+            "name": "app",
+            "displayName": "Application",
+            "isRequired": true,
+            "isReadOnly": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "adverts"
+        },
+        {
+            "type": "lookup",
+            "order": 20,
+            "settings": {
+                "collection": "adverts_recurrence",
+                "reverseIsActive": false,
+                "reverseName": null,
+                "reverseHelp": null
+            },
+            "name": "recurrence",
+            "displayName": "Recurrence",
+            "isRequired": true,
+            "isReadOnly": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "adverts"
+        },
+        {
+            "type": "file",
+            "order": 30,
+            "settings": {},
+            "name": "image",
+            "displayName": "Advert image",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "adverts"
+        },
+        {
+            "type": "string",
+            "order": 40,
+            "settings": {},
+            "name": "link",
+            "displayName": "Link",
+            "help": "Link to open if advert is clicked.",
+            "isRequired": false,
+            "isReadOnly": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "adverts"
+        },
+        {
+            "type": "number",
+            "order": 50,
+            "settings": {},
+            "name": "order",
+            "displayName": "Order",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "adverts"
+        },
+        {
+            "type": "boolean",
+            "order": 60,
+            "settings": {},
+            "name": "enabled",
+            "displayName": "Enabled",
+            "isRequired": false,
+            "isReadOnly": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "adverts",
+            "help": "If the entry is not enabled, it will be hidden."
+        },
+        {
+            "type": "array",
+            "order": 70,
+            "settings": {
+                "type": "lookup",
+                "collection": "user_tags"
+            },
+            "name": "tag_filters",
+            "displayName": "User tags allowed to get this entry",
+            "help": "The entry will be public if no tag is defined.",
+            "isRequired": false,
+            "isReadOnly": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "adverts"
+        }
+    ],
+    "description": "Little adverts that appear once you enter in the app.",
+    "itemTitle": "this.link || 'Advert without link'",
+    "itemSubTitle": "(this.enabled) ? 'Enabled' : 'Disabled'"
+}

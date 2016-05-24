@@ -1,0 +1,36 @@
+{
+    "slug": "actions",
+    "name": "Actions",
+    "fields": [
+        {
+            "type": "string",
+            "order": 10,
+            "settings": {},
+            "name": "id",
+            "displayName": "Identifier",
+            "isRequired": true,
+            "isReadOnly": false,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "actions",
+            "isLocalizable": false
+        },
+        {
+            "type": "string",
+            "order": 20,
+            "settings": {},
+            "name": "title",
+            "displayName": "Action",
+            "isRequired": true,
+            "isReadOnly": false,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "actions"
+        }
+    ],
+    "description": "Available actions to expand an entry functionality.",
+    "itemTitle": "this.title || 'New action'",
+    "itemSubTitle": "this.id"
+}

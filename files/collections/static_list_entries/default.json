@@ -1,0 +1,182 @@
+{
+    "slug": "static_list_entries",
+    "name": "Plain pages in list entries",
+    "fields": [
+        {
+            "type": "string",
+            "order": 10,
+            "settings": {},
+            "name": "title",
+            "displayName": "Title",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "static_list_entries"
+        },
+        {
+            "type": "string",
+            "order": 20,
+            "settings": {},
+            "name": "subtitle",
+            "displayName": "Subtitle",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "static_list_entries"
+        },
+        {
+            "type": "text",
+            "order": 30,
+            "settings": {
+                "options": [
+                    "bold",
+                    "italic",
+                    "quote",
+                    "unordered-list",
+                    "link",
+                    "image"
+                ]
+            },
+            "name": "body",
+            "displayName": "Body",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "static_list_entries"
+        },
+        {
+            "type": "lookup",
+            "order": 40,
+            "settings": {
+                "collection": "app_menu",
+                "reverseIsActive": false,
+                "reverseName": null,
+                "reverseHelp": null
+            },
+            "name": "menu_entry",
+            "displayName": "Menu entry",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "static_list_entries"
+        },
+        {
+            "type": "number",
+            "order": 50,
+            "settings": {},
+            "name": "order",
+            "displayName": "Order",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "static_list_entries"
+        },
+        {
+            "type": "array",
+            "order": 60,
+            "settings": {
+                "type": "lookup",
+                "collection": "user_tags"
+            },
+            "name": "tag_filters",
+            "displayName": "User tags allowed to get this entry",
+            "help": "The entry will be public if no tag is defined.",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "static_list_entries"
+        },
+        {
+            "type": "boolean",
+            "order": 70,
+            "settings": {},
+            "name": "enabled",
+            "displayName": "Enabled",
+            "help": "If the entry is not enabled, it will be hidden.",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "static_list_entries"
+        },
+        {
+            "type": "reverseLookup",
+            "order": 0,
+            "settings": {
+                "collection": "static_list_entries",
+                "reverseIsActive": true,
+                "reverseName": "Related actions",
+                "reverseHelp": null
+            },
+            "name": "parent",
+            "displayName": "Parent",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "actions_entries_static_list"
+        },
+        {
+            "type": "reverseLookup",
+            "order": 0,
+            "settings": {
+                "collection": "static_list_entries",
+                "reverseIsActive": true,
+                "reverseName": "Attached files",
+                "reverseHelp": null
+            },
+            "name": "parent",
+            "displayName": "Parent",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "files_entries_static_list"
+        },
+        {
+            "type": "reverseLookup",
+            "order": 0,
+            "settings": {
+                "collection": "static_list_entries",
+                "reverseIsActive": true,
+                "reverseName": "Images",
+                "reverseHelp": null
+            },
+            "name": "parent",
+            "displayName": "Parent",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "images_entries_static_list"
+        }
+    ],
+    "description": "Plain pages grouped by list entries.",
+    "itemTitle": "this.title || 'New plain page in list entry'",
+    "itemSubTitle": "this.subtitle"
+}

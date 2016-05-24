@@ -1,0 +1,84 @@
+{
+    "slug": "files_entries_calendar",
+    "name": "Z: files_entries_calendar",
+    "fields": [
+        {
+            "type": "lookup",
+            "order": 10,
+            "settings": {
+                "collection": "calendar_entries",
+                "reverseIsActive": true,
+                "reverseName": "Attached files",
+                "reverseHelp": null
+            },
+            "name": "parent",
+            "displayName": "Parent",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "files_entries_calendar"
+        },
+        {
+            "type": "string",
+            "order": 20,
+            "settings": {},
+            "name": "title",
+            "displayName": "Title",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "files_entries_calendar"
+        },
+        {
+            "type": "string",
+            "order": 30,
+            "settings": {},
+            "name": "description",
+            "displayName": "Description",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "files_entries_calendar"
+        },
+        {
+            "type": "file",
+            "order": 40,
+            "settings": {},
+            "name": "file",
+            "displayName": "File",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "files_entries_calendar"
+        },
+        {
+            "type": "number",
+            "order": 50,
+            "settings": {},
+            "name": "order",
+            "displayName": "Order",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "files_entries_calendar"
+        }
+    ],
+    "description": null,
+    "itemTitle": "this.title || 'New attached file'",
+    "itemSubTitle": "this.description"
+}

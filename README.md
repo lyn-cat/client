@@ -10,7 +10,7 @@ Instalación:
 
 El proceso que hace el updater es el siguiente:
 
-1) Se conectamos a corus usando el user "admin" (tras solicita host y password)
+1) Se conecta a corus usando el user "admin" (tras solicita host y password)
 
 2) Recupera de Corus los siguientes elementos:
 

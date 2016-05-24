@@ -1,0 +1,108 @@
+{
+    "slug": "app_menu",
+    "name": "Applications main menu",
+    "fields": [
+        {
+            "type": "lookup",
+            "order": 10,
+            "settings": {
+                "collection": "subapps",
+                "reverseIsActive": false,
+                "reverseName": null,
+                "reverseHelp": null
+            },
+            "name": "app",
+            "displayName": "Application",
+            "isRequired": true,
+            "isReadOnly": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "app_menu"
+        },
+        {
+            "type": "lookup",
+            "order": 20,
+            "settings": {
+                "collection": "layout_types",
+                "reverseIsActive": false,
+                "reverseName": null,
+                "reverseHelp": null
+            },
+            "name": "type",
+            "displayName": "Layout type",
+            "isRequired": true,
+            "isReadOnly": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "app_menu"
+        },
+        {
+            "type": "string",
+            "order": 30,
+            "settings": {},
+            "name": "title",
+            "displayName": "Title",
+            "isRequired": true,
+            "isReadOnly": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "app_menu"
+        },
+        {
+            "type": "boolean",
+            "order": 40,
+            "settings": {},
+            "name": "enabled",
+            "displayName": "Enabled",
+            "help": "If the entry is not enabled, it will be hidden.",
+            "isRequired": false,
+            "isReadOnly": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "app_menu"
+        },
+        {
+            "type": "array",
+            "order": 50,
+            "settings": {
+                "type": "lookup",
+                "collection": "user_tags"
+            },
+            "name": "tag_filters",
+            "displayName": "User tags allowed to get this entry",
+            "help": "The entry will be public if no tag is defined.",
+            "isRequired": false,
+            "isReadOnly": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "app_menu"
+        },
+        {
+            "type": "number",
+            "order": 60,
+            "settings": {},
+            "name": "order",
+            "displayName": "Order",
+            "isRequired": false,
+            "isReadOnly": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "app_menu"
+        }
+    ],
+    "description": "Main menu entries for each application.",
+    "itemTitle": "this.title || 'New menu entry'",
+    "itemSubTitle": "this.type"
+}

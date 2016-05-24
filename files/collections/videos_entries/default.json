@@ -1,0 +1,146 @@
+{
+    "slug": "videos_entries",
+    "name": "Videos entries",
+    "fields": [
+        {
+            "type": "string",
+            "order": 10,
+            "settings": {},
+            "name": "title",
+            "displayName": "Title",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "videos_entries"
+        },
+        {
+            "type": "lookup",
+            "order": 20,
+            "settings": {
+                "collection": "app_menu",
+                "reverseIsActive": false,
+                "reverseName": null,
+                "reverseHelp": null
+            },
+            "name": "menu_entry",
+            "displayName": "Menu entry",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "videos_entries"
+        },
+        {
+            "type": "file",
+            "order": 30,
+            "settings": {},
+            "name": "image",
+            "displayName": "Cover image",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "videos_entries"
+        },
+        {
+            "type": "date",
+            "order": 40,
+            "settings": {},
+            "name": "datum",
+            "displayName": "Date",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "videos_entries"
+        },
+        {
+            "type": "text",
+            "order": 50,
+            "settings": {
+                "options": []
+            },
+            "name": "excerpt",
+            "displayName": "Excerpt",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "videos_entries"
+        },
+        {
+            "type": "string",
+            "order": 60,
+            "settings": {},
+            "name": "link",
+            "displayName": "Youtube video link",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "videos_entries"
+        },
+        {
+            "type": "string",
+            "order": 70,
+            "settings": {},
+            "name": "duration",
+            "displayName": "Duration as a string",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "videos_entries"
+        },
+        {
+            "type": "array",
+            "order": 80,
+            "settings": {
+                "type": "lookup",
+                "collection": "user_tags"
+            },
+            "name": "tag_filters",
+            "displayName": "User tags allowed to get this entry",
+            "help": "The entry will be public if no tag is defined.",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "videos_entries"
+        },
+        {
+            "type": "boolean",
+            "order": 90,
+            "settings": {},
+            "name": "enabled",
+            "displayName": "Enabled",
+            "help": "If the entry is not enabled, it will be hidden.",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "videos_entries"
+        }
+    ],
+    "description": "Videos entries list.",
+    "itemTitle": "this.title || 'New video entry'",
+    "itemSubTitle": "(this.datum) ? (new Date(this.datum)).toLocaleDateString() : ''"
+}

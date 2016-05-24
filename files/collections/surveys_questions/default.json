@@ -1,0 +1,70 @@
+{
+    "slug": "surveys_questions",
+    "name": "Surveys questions",
+    "fields": [
+        {
+            "type": "lookup",
+            "order": 10,
+            "settings": {
+                "collection": "surveys_entries",
+                "reverseIsActive": true,
+                "reverseName": "Questions",
+                "reverseHelp": null
+            },
+            "name": "parent",
+            "displayName": "Parent",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "surveys_questions"
+        },
+        {
+            "type": "string",
+            "order": 20,
+            "settings": {},
+            "name": "title",
+            "displayName": "Question",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "surveys_questions"
+        },
+        {
+            "type": "number",
+            "order": 30,
+            "settings": {},
+            "name": "order",
+            "displayName": "Order",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "surveys_questions"
+        },
+        {
+            "type": "number",
+            "order": 40,
+            "settings": {},
+            "name": "average_rating",
+            "displayName": "Average rating",
+            "isReadOnly": true,
+            "isRequired": false,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "surveys_questions"
+        }
+    ],
+    "description": "Questions list for surveys.",
+    "itemTitle": "this.title || 'New question'",
+    "itemSubTitle": null
+}

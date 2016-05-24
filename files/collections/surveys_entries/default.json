@@ -1,0 +1,137 @@
+{
+    "slug": "surveys_entries",
+    "name": "Surveys",
+    "fields": [
+        {
+            "type": "string",
+            "order": 10,
+            "settings": {},
+            "name": "title",
+            "displayName": "Title",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "surveys_entries"
+        },
+        {
+            "type": "lookup",
+            "order": 20,
+            "settings": {
+                "collection": "app_menu",
+                "reverseIsActive": false,
+                "reverseName": null,
+                "reverseHelp": null
+            },
+            "name": "menu_entry",
+            "displayName": "Menu entry",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "surveys_entries"
+        },
+        {
+            "type": "date",
+            "order": 30,
+            "settings": {},
+            "name": "from",
+            "displayName": "Available since date",
+            "help": "If no date is filled, it will be published as soon as it's enabled.",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "surveys_entries"
+        },
+        {
+            "type": "array",
+            "order": 40,
+            "settings": {
+                "type": "lookup",
+                "collection": "user_tags"
+            },
+            "name": "tag_filters",
+            "displayName": "User tags allowed to get this entry",
+            "help": "The entry will be public if no tag is defined.",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "surveys_entries"
+        },
+        {
+            "type": "number",
+            "order": 50,
+            "settings": {},
+            "name": "total_votes",
+            "displayName": "Number of votes",
+            "isReadOnly": true,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "surveys_entries"
+        },
+        {
+            "type": "boolean",
+            "order": 60,
+            "settings": {},
+            "name": "enabled",
+            "displayName": "Enabled",
+            "help": "If the entry is not enabled, it will be hidden.",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "surveys_entries"
+        },
+        {
+            "type": "number",
+            "order": 70,
+            "settings": {},
+            "name": "average_rating",
+            "displayName": "Average rating",
+            "isReadOnly": true,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "surveys_entries"
+        },
+        {
+            "type": "reverseLookup",
+            "order": 0,
+            "settings": {
+                "collection": "surveys_entries",
+                "reverseIsActive": true,
+                "reverseName": "Questions",
+                "reverseHelp": null
+            },
+            "name": "parent",
+            "displayName": "Parent",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "surveys_questions"
+        }
+    ],
+    "description": "Surveys list.",
+    "itemTitle": "this.title || 'New survey entry'",
+    "itemSubTitle": "this.average_rating + '/5 from ' + this.total_votes + ' votes'"
+}

@@ -1,0 +1,84 @@
+{
+    "slug": "directory_categories",
+    "name": "Places & people categories",
+    "fields": [
+        {
+            "type": "string",
+            "order": 10,
+            "settings": {},
+            "name": "id",
+            "displayName": "Identifier",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "directory_categories"
+        },
+        {
+            "type": "lookup",
+            "order": 20,
+            "settings": {
+                "collection": "app_menu",
+                "reverseIsActive": false,
+                "reverseName": null,
+                "reverseHelp": null
+            },
+            "name": "menu_entry",
+            "displayName": "Menu entry",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "directory_categories"
+        },
+        {
+            "type": "string",
+            "order": 30,
+            "settings": {},
+            "name": "title",
+            "displayName": "Title",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "directory_categories"
+        },
+        {
+            "type": "file",
+            "order": 40,
+            "settings": {},
+            "name": "image",
+            "displayName": "Image or icon",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "directory_categories"
+        },
+        {
+            "type": "number",
+            "order": 50,
+            "settings": {},
+            "name": "order",
+            "displayName": "Order",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "directory_categories"
+        }
+    ],
+    "description": "Categories list for making groups of places and people.",
+    "itemTitle": "this.title || 'New category'",
+    "itemSubTitle": "this.id"
+}

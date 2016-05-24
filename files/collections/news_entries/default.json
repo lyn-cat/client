@@ -1,0 +1,213 @@
+{
+    "slug": "news_entries",
+    "name": "News entries",
+    "fields": [
+        {
+            "type": "string",
+            "order": 10,
+            "settings": {},
+            "name": "title",
+            "displayName": "Title",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "news_entries"
+        },
+        {
+            "type": "lookup",
+            "order": 20,
+            "settings": {
+                "collection": "app_menu",
+                "reverseIsActive": false,
+                "reverseName": null,
+                "reverseHelp": null
+            },
+            "name": "menu_entry",
+            "displayName": "Menu entry",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "news_entries"
+        },
+        {
+            "type": "date",
+            "order": 30,
+            "settings": {},
+            "name": "datum",
+            "displayName": "Date",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "news_entries"
+        },
+        {
+            "type": "file",
+            "order": 40,
+            "settings": {},
+            "name": "cover",
+            "displayName": "Highlighted image",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "news_entries"
+        },
+        {
+            "type": "array",
+            "order": 50,
+            "settings": {
+                "type": "lookup",
+                "collection": "news_categories"
+            },
+            "name": "categories",
+            "displayName": "Categories",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "news_entries"
+        },
+        {
+            "type": "text",
+            "order": 60,
+            "settings": {
+                "options": []
+            },
+            "name": "excerpt",
+            "displayName": "Excerpt",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "news_entries"
+        },
+        {
+            "type": "text",
+            "order": 70,
+            "settings": {
+                "options": [
+                    "bold",
+                    "italic",
+                    "quote",
+                    "unordered-list",
+                    "link",
+                    "image"
+                ]
+            },
+            "name": "body",
+            "displayName": "Body",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "news_entries"
+        },
+        {
+            "type": "array",
+            "order": 80,
+            "settings": {
+                "type": "lookup",
+                "collection": "user_tags"
+            },
+            "name": "tag_filters",
+            "displayName": "User tags allowed to get this entry",
+            "help": "The entry will be public if no tag is defined.",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "news_entries"
+        },
+        {
+            "type": "boolean",
+            "order": 90,
+            "settings": {},
+            "name": "enabled",
+            "displayName": "Enabled",
+            "help": "If the entry is not enabled, it will be hidden.",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "news_entries"
+        },
+        {
+            "type": "reverseLookup",
+            "order": 0,
+            "settings": {
+                "collection": "news_entries",
+                "reverseIsActive": true,
+                "reverseName": "Related actions",
+                "reverseHelp": null
+            },
+            "name": "parent",
+            "displayName": "Parent",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "actions_entries_news"
+        },
+        {
+            "type": "reverseLookup",
+            "order": 0,
+            "settings": {
+                "collection": "news_entries",
+                "reverseIsActive": true,
+                "reverseName": "Attached files",
+                "reverseHelp": null
+            },
+            "name": "parent",
+            "displayName": "Parent",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "files_entries_news"
+        },
+        {
+            "type": "reverseLookup",
+            "order": 0,
+            "settings": {
+                "collection": "news_entries",
+                "reverseIsActive": true,
+                "reverseName": "Images",
+                "reverseHelp": null
+            },
+            "name": "parent",
+            "displayName": "Parent",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "images_entries_news"
+        }
+    ],
+    "description": "News entries list.",
+    "itemTitle": "this.title || 'New news entry'",
+    "itemSubTitle": "(this.datum) ? (new Date(this.datum)).toLocaleDateString() : ''"
+}

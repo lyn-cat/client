@@ -102,11 +102,9 @@ var askPassword = function(callback){
 };
 
 
-
 /**
  * Init
  */
-
 
 // Indicamos cual será el spinner por defecto
 
@@ -196,7 +194,7 @@ async.series(
 
         function(cb){
 
-            //Guardamos el valor de CURRENT_SOURCE_PASSWORD
+            //Guardamos el valor de CURRENT_KEY
 
             askKey(function(err){
 

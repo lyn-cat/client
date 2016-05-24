@@ -1,0 +1,70 @@
+{
+    "slug": "images_entries_calendar",
+    "name": "Z: images_entries_calendar",
+    "fields": [
+        {
+            "type": "lookup",
+            "order": 10,
+            "settings": {
+                "collection": "calendar_entries",
+                "reverseIsActive": true,
+                "reverseName": "Images",
+                "reverseHelp": null
+            },
+            "name": "parent",
+            "displayName": "Parent",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "images_entries_calendar"
+        },
+        {
+            "type": "file",
+            "order": 20,
+            "settings": {},
+            "name": "image",
+            "displayName": "Image",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "images_entries_calendar"
+        },
+        {
+            "type": "string",
+            "order": 30,
+            "settings": {},
+            "name": "caption",
+            "displayName": "Description",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "images_entries_calendar"
+        },
+        {
+            "type": "number",
+            "order": 40,
+            "settings": {},
+            "name": "order",
+            "displayName": "Order",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "images_entries_calendar"
+        }
+    ],
+    "description": null,
+    "itemTitle": "this.file || 'New image'",
+    "itemSubTitle": "this.caption"
+}

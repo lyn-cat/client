@@ -1,0 +1,279 @@
+{
+    "slug": "directory_entries",
+    "name": "Places & People entries",
+    "fields": [
+        {
+            "type": "string",
+            "order": 10,
+            "settings": {},
+            "name": "title",
+            "displayName": "Title",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "directory_entries"
+        },
+        {
+            "type": "lookup",
+            "order": 20,
+            "settings": {
+                "collection": "app_menu",
+                "reverseIsActive": false,
+                "reverseName": null,
+                "reverseHelp": null
+            },
+            "name": "menu_entry",
+            "displayName": "Menu entry",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "directory_entries"
+        },
+        {
+            "type": "string",
+            "order": 30,
+            "settings": {},
+            "name": "subtitle",
+            "displayName": "Subtitle",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "directory_entries"
+        },
+        {
+            "type": "lookup",
+            "order": 40,
+            "settings": {
+                "collection": "directory_categories",
+                "reverseIsActive": false,
+                "reverseName": "",
+                "reverseHelp": null
+            },
+            "name": "category",
+            "displayName": "Category",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "directory_entries"
+        },
+        {
+            "type": "text",
+            "order": 50,
+            "settings": {
+                "options": [
+                    "bold",
+                    "italic",
+                    "quote",
+                    "unordered-list",
+                    "link",
+                    "image"
+                ]
+            },
+            "name": "body",
+            "displayName": "Body",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "directory_entries"
+        },
+        {
+            "type": "text",
+            "order": 60,
+            "settings": {
+                "options": [
+                    "bold",
+                    "italic"
+                ]
+            },
+            "name": "timetable",
+            "displayName": "Timetable",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "directory_entries"
+        },
+        {
+            "type": "text",
+            "order": 70,
+            "settings": {
+                "options": []
+            },
+            "name": "address",
+            "displayName": "Address",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "directory_entries"
+        },
+        {
+            "type": "string",
+            "order": 80,
+            "settings": {},
+            "name": "city",
+            "displayName": "City",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "directory_entries"
+        },
+        {
+            "type": "string",
+            "order": 90,
+            "settings": {},
+            "name": "state",
+            "displayName": "State or province",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "directory_entries"
+        },
+        {
+            "type": "string",
+            "order": 100,
+            "settings": {},
+            "name": "postal_code",
+            "displayName": "Postal code",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "directory_entries"
+        },
+        {
+            "type": "geolocation",
+            "order": 110,
+            "settings": {},
+            "name": "geolocation",
+            "displayName": "Location coordenates",
+            "help": "[ latitude , longitude ] Like [1.1232, 2.1212]",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "directory_entries"
+        },
+        {
+            "type": "array",
+            "order": 120,
+            "settings": {
+                "type": "lookup",
+                "collection": "user_tags"
+            },
+            "name": "tag_filters",
+            "displayName": "User tags allowed to get this entry",
+            "help": "The entry will be public if no tag is defined.",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "directory_entries"
+        },
+        {
+            "type": "boolean",
+            "order": 130,
+            "settings": {},
+            "name": "enabled",
+            "displayName": "Enabled",
+            "help": "If the entry is not enabled, it will be hidden.",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "directory_entries"
+        },
+        {
+            "type": "reverseLookup",
+            "order": 0,
+            "settings": {
+                "collection": "directory_entries",
+                "reverseIsActive": true,
+                "reverseName": "Related actions",
+                "reverseHelp": null
+            },
+            "name": "parent",
+            "displayName": "Parent",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "actions_entries_directory"
+        },
+        {
+            "type": "reverseLookup",
+            "order": 0,
+            "settings": {
+                "collection": "directory_entries",
+                "reverseIsActive": true,
+                "reverseName": "Attached files",
+                "reverseHelp": null
+            },
+            "name": "parent",
+            "displayName": "Parent",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "files_entries_directory"
+        },
+        {
+            "type": "reverseLookup",
+            "order": 0,
+            "settings": {
+                "collection": "directory_entries",
+                "reverseIsActive": true,
+                "reverseName": "Images",
+                "reverseHelp": null
+            },
+            "name": "parent",
+            "displayName": "Parent",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "images_entries_directory"
+        }
+    ],
+    "description": "Places and people list.",
+    "itemTitle": "this.title || 'New places & people entry'",
+    "itemSubTitle": "this.subtitle"
+}

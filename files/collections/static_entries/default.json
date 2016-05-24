@@ -1,0 +1,135 @@
+{
+    "slug": "static_entries",
+    "name": "Plain pages",
+    "fields": [
+        {
+            "type": "string",
+            "order": 10,
+            "settings": {},
+            "name": "title",
+            "displayName": "Title",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "static_entries"
+        },
+        {
+            "type": "string",
+            "order": 20,
+            "settings": {},
+            "name": "subtitle",
+            "displayName": "Subtitle",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "static_entries"
+        },
+        {
+            "type": "text",
+            "order": 30,
+            "settings": {
+                "options": [
+                    "bold",
+                    "italic",
+                    "quote",
+                    "unordered-list",
+                    "link",
+                    "image"
+                ]
+            },
+            "name": "body",
+            "displayName": "Body",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": true,
+            "entity": "collection",
+            "slug": "static_entries"
+        },
+        {
+            "type": "lookup",
+            "order": 40,
+            "settings": {
+                "collection": "app_menu",
+                "reverseIsActive": false,
+                "reverseName": null,
+                "reverseHelp": null
+            },
+            "name": "menu_entry",
+            "displayName": "Menu entry",
+            "help": "The menu entry indicates the application where this content will appear at.",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": true,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "static_entries"
+        },
+        {
+            "type": "reverseLookup",
+            "order": 0,
+            "settings": {
+                "collection": "static_entries",
+                "reverseIsActive": true,
+                "reverseName": "Related actions",
+                "reverseHelp": null
+            },
+            "name": "parent",
+            "displayName": "Parent",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "actions_entries_static"
+        },
+        {
+            "type": "reverseLookup",
+            "order": 0,
+            "settings": {
+                "collection": "static_entries",
+                "reverseIsActive": true,
+                "reverseName": "Attached files",
+                "reverseHelp": null
+            },
+            "name": "parent",
+            "displayName": "Parent",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "files_entries_static"
+        },
+        {
+            "type": "reverseLookup",
+            "order": 0,
+            "settings": {
+                "collection": "static_entries",
+                "reverseIsActive": true,
+                "reverseName": "Images",
+                "reverseHelp": null
+            },
+            "name": "parent",
+            "displayName": "Parent",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "images_entries_static"
+        }
+    ],
+    "description": "Plain pages list.",
+    "itemTitle": "this.title || 'New plain page entry'",
+    "itemSubTitle": "this.subtitle"
+}

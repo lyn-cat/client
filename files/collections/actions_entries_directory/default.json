@@ -1,0 +1,71 @@
+{
+    "slug": "actions_entries_directory",
+    "name": "Z: actions_entries_directory",
+    "fields": [
+        {
+            "type": "lookup",
+            "order": 10,
+            "settings": {
+                "collection": "directory_entries",
+                "reverseIsActive": true,
+                "reverseName": "Related actions",
+                "reverseHelp": null
+            },
+            "name": "parent",
+            "displayName": "Parent",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "actions_entries_directory"
+        },
+        {
+            "type": "lookup",
+            "order": 20,
+            "settings": {
+                "collection": "actions",
+                "reverseIsActive": false,
+                "reverseName": null,
+                "reverseHelp": null
+            },
+            "name": "action",
+            "displayName": "Action",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "actions_entries_directory"
+        },
+        {
+            "type": "string",
+            "order": 30,
+            "settings": {},
+            "name": "link",
+            "displayName": "Link or URI",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "actions_entries_directory"
+        },
+        {
+            "type": "number",
+            "order": 40,
+            "settings": {},
+            "name": "order",
+            "displayName": "Order",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "actions_entries_directory"
+        }
+    ],
+    "description": null,
+    "itemTitle": "this.link  || 'New action'",
+    "itemSubTitle": "this.action"
+}

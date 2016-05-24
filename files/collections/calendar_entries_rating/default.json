@@ -1,0 +1,52 @@
+{
+    "slug": "calendar_entries_rating",
+    "name": "Calendar entries rating",
+    "fields": [
+        {
+            "type": "string",
+            "order": 10,
+            "settings": {},
+            "name": "device",
+            "displayName": "Device",
+            "isReadOnly": false,
+            "isRequired": false,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "isLocalizable": false,
+            "entity": "collection",
+            "slug": "calendar_entries_rating"
+        },
+        {
+            "type": "lookup",
+            "order": 20,
+            "settings": {
+                "collection": "calendar_entries",
+                "reverseIsActive": false,
+                "reverseName": null,
+                "reverseHelp": null
+            },
+            "name": "parent",
+            "displayName": "Parent",
+            "isReadOnly": false,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "calendar_entries_rating"
+        },
+        {
+            "type": "number",
+            "order": 30,
+            "settings": {},
+            "name": "rating",
+            "displayName": "Rating",
+            "help": "From 0 to 5.",
+            "isReadOnly": true,
+            "isRequired": true,
+            "isListHidden": false,
+            "isDetailHidden": false,
+            "entity": "collection",
+            "slug": "calendar_entries_rating"
+        }
+    ]
+}
