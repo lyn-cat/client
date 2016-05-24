@@ -6,16 +6,12 @@
 
 var lyncat = require('../lib');
 var async = require('async');
-var program = require('commander-plus');
 var figlet = require('figlet');
 var os = require('os');
 var path = require('path');
 var fs = require('fs-extra');
 var moment = require('moment');
 var util = require('util');
-var exec = require('child_process').exec;
-var packageJson = require('../package.json');
-var Spinner = require('cli-spinner').Spinner;
 var colors = require('colors');
 
 /**
@@ -51,7 +47,7 @@ async.series(
 
     [
 
-        function(cb){
+        /*function(cb){
 
             //Eliminamos la carpeta
 
@@ -61,7 +57,7 @@ async.series(
 
             });
 
-        },
+        },*/
 
         function(cb){
 
@@ -153,6 +149,9 @@ async.series(
 
                     fs.writeJsonSync(appFolder + '/userFields.json', json.userFields, {spaces: 4});
 
+                    fs.writeJsonSync(appFolder + '/modules.json', json.modules, {spaces: 4});
+
+
                     return cb(null);
 
                 }
@@ -171,7 +170,7 @@ async.series(
 
         } else {
 
-            return;
+            console.log('Se ha completado la descarga de la configuración de Lyncat');
 
         }
 

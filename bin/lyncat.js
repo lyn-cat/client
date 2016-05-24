@@ -17,36 +17,36 @@ var exec = require('child_process').exec;
 var packageJson = require('../package.json');
 var Spinner = require('cli-spinner').Spinner;
 var colors = require('colors');
+var Table = require('cli-table');
 
 /**
  * Properties
  */
 
-var DOWNLOADS_FOLDER =  path.join(os.homedir(), '/lyncat/downloads');
-var CURRENT_COMMAND = null;
+var DOWNLOADS_FOLDER =  path.join(__dirname, '/../files');
+var CURRENT_CORPORATE = null;
 var CURRENT_HOST = null;
 var CURRENT_APP = null;
 var CURRENT_KEY = null;
-var CURRENT_PASSWORD = null;
-var CURRENT_DOWNLOAD_FOLDER = null;
-var CONFIG = packageJson.config;
 
 /**
  * Private Methods
  */
 
 
+
 /**
  * Promp Methods
  */
 
-var askHost = function(callback){
+var askCorporate = function(callback){
 
-    program.promptSingleLine(colors.magenta('1)') + ' Host al que quieres conectar (ej:lyncat.corus.io): ', function(i){
+    program.promptSingleLine(colors.red('1)') + ' Corporate que quieres actualizar (ej:tecnocampus): ', function(i){
 
         if(i) {
 
-            CURRENT_HOST = i;
+            CURRENT_CORPORATE = i;
+            CURRENT_HOST = CURRENT_CORPORATE + '.corus.io';
             return callback(null);
 
         } else {
@@ -61,7 +61,7 @@ var askHost = function(callback){
 
 var askApp = function(callback){
 
-    program.promptSingleLine(colors.magenta('2)') + ' App que quieres descargar/actualizar (ej:dev-lyncat): ', function(i){
+    program.promptSingleLine(colors.red('2)') + ' App que quieres actualizar (ej:dev-lyncat): ', function(i){
 
 
         if(i) {
@@ -81,7 +81,7 @@ var askApp = function(callback){
 
 var askKey = function(callback){
 
-    program.password(colors.magenta('2)') + ' Key de usuario Super-Administrador de ' + CONFIG.HOST + ': ', '*', function(i){
+    program.password(colors.red('3)') + ' Key de usuario Super-Administrador de ' + CURRENT_HOST + ': ', '*', function(i){
 
         CURRENT_KEY = i;
         return callback(null);
@@ -89,18 +89,6 @@ var askKey = function(callback){
     });
 
 };
-
-var askPassword = function(callback){
-
-    program.password(colors.magenta('4)') + ' Password de usuario Super-Administrador de ' + CURRENT_HOST + ': ', '*', function(i){
-
-        CURRENT_PASSWORD = i;
-        return callback(null);
-
-    });
-
-};
-
 
 /**
  * Init
@@ -157,7 +145,9 @@ async.series(
 
                 if(!err){
 
-                    console.log(colors.magenta(data));
+                    console.log(colors.red(data));
+                    console.log('\n');
+                    console.log('Se actualizará lyncat con los archivos que hay en: ' + colors.red(DOWNLOADS_FOLDER));
                     console.log('\n');
 
                 }
@@ -170,9 +160,9 @@ async.series(
 
         function(cb){
 
-            //Guardamos el valor de CURRENT_HOST
+            //Guardamos el valor de CURRENT_CORPORATE
 
-            askHost(function(err){
+            askCorporate(function(err){
 
                 return cb(err);
 
@@ -206,23 +196,50 @@ async.series(
 
         function(cb){
 
-            //Guardamos el valor de CURRENT_PASSWORD
+            var json = lyncat.getUpdateJSON(DOWNLOADS_FOLDER, CURRENT_CORPORATE);
 
-            askPassword(function(err){
+            console.log(colors.red('4) Se actualizarán los siguientes items...\n'));
 
-                return cb(err);
+            var table = new Table({
+
+                head: ['Tipo', 'Slug', 'Default?'],
+                colWidths: [20, 60, 10]
 
             });
 
-        },
+            table.push(['app fields', '-', json.app.appFields.default ? colors.green('Si') : colors.red('No')]);
 
-        function(cb){
+            table.push(['user fields', '-', json.app.userFields.default ? colors.green('Si') : colors.red('No')]);
 
-            var spinner = new Spinner('Descargando versión actual desde ' + CONFIG.HOST + '...');
-            spinner.start();
+            table.push(['npm modules', '-', json.app.modules.default ? colors.green('Si') : colors.red('No')]);
 
+            Object.keys(json.collections).forEach(function(slug){
 
+                table.push(['collection', slug, json.collections[slug].default ? colors.green('Si') : colors.red('No')]);
 
+            });
+
+            Object.keys(json.scripts).forEach(function(slug){
+
+                table.push([json.scripts[slug].type, slug, json.scripts[slug].default ? colors.green('Si') : colors.red('No')]);
+
+            });
+
+            console.log(table.toString());
+
+            program.promptSingleLine(colors.red('5) ') + '¿Quieres continuar? [ ' + colors.green('yes') + ' / ' + colors.red('no') + ' ]: ', function(ok){
+
+                if(ok !== 'yes'){
+
+                    process.exit();
+
+                } else {
+
+                    return cb(null);
+
+                }
+
+            });
 
         }
 
