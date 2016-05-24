@@ -17,6 +17,7 @@ var exec = require('child_process').exec;
 var Spinner = require('cli-spinner').Spinner;
 var colors = require('colors');
 var Table = require('cli-table');
+var ProgressBar = require('progress');
 
 /**
  * Properties
@@ -97,7 +98,7 @@ var askKey = function(callback){
 
 Spinner.setDefaultSpinnerString(18);
 
-async.series(
+async.waterfall(
 
     [
 
@@ -224,19 +225,52 @@ async.series(
 
             });
 
-            console.log(table.toString());
+            console.log(table.toString() + '\n');
 
-            program.promptSingleLine(colors.red('5) ') + '¿Quieres continuar? [ ' + colors.green('yes') + ' / ' + colors.red('no') + ' ]: ', function(ok){
+            program.promptSingleLine(colors.red('5) ') + 'Se actualizará la app ' + colors.red(CURRENT_APP) + ' del host ' + colors.red(CURRENT_HOST) + ': ¿Quieres continuar? [ ' + colors.green('yes') + ' / ' + colors.red('no') + ' ]: ', function(ok){
 
                 if(ok !== 'yes'){
 
                     console.log('\n');
-                    process.exit();
+                    process.exit(0);
 
                 } else {
 
-                    return cb(null);
+                    return cb(null, json);
 
+                }
+
+            });
+
+        },
+
+        function(json, cb){
+
+            var totalUpdates = 0;
+
+            totalUpdates += Object.keys(json.app).length;
+            totalUpdates += Object.keys(json.collections).length;
+            totalUpdates += Object.keys(json.scripts).length;
+
+            var bar = new ProgressBar('   [:bar]  ' + colors.green(':percent') + ' (' + colors.green(':etas') + ')' , {
+
+                complete: '=',
+                incomplete: '-',
+                total: totalUpdates,
+                width:84
+
+            });
+
+            lyncat.patch({
+
+                host: CURRENT_HOST,
+                app: CURRENT_APP,
+                json: json,
+                progress: function(){
+                    bar.tick();
+                },
+                complete: function(err){
+                    return cb(err);
                 }
 
             });
@@ -253,7 +287,7 @@ async.series(
 
         } else {
 
-            return;
+            process.exit(0);
 
         }
 
