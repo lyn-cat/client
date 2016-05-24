@@ -110,25 +110,6 @@
             "isLocalizable": false,
             "entity": "collection",
             "slug": "surveys_entries"
-        },
-        {
-            "type": "reverseLookup",
-            "order": 0,
-            "settings": {
-                "collection": "surveys_entries",
-                "reverseIsActive": true,
-                "reverseName": "Questions",
-                "reverseHelp": null
-            },
-            "name": "parent",
-            "displayName": "Parent",
-            "isReadOnly": false,
-            "isRequired": true,
-            "isListHidden": false,
-            "isDetailHidden": false,
-            "isLocalizable": false,
-            "entity": "collection",
-            "slug": "surveys_questions"
         }
     ],
     "description": "Surveys list.",

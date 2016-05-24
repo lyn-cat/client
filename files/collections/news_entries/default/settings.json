@@ -149,62 +149,6 @@
             "isDetailHidden": false,
             "entity": "collection",
             "slug": "news_entries"
-        },
-        {
-            "type": "reverseLookup",
-            "order": 0,
-            "settings": {
-                "collection": "news_entries",
-                "reverseIsActive": true,
-                "reverseName": "Related actions",
-                "reverseHelp": null
-            },
-            "name": "parent",
-            "displayName": "Parent",
-            "isReadOnly": false,
-            "isRequired": true,
-            "isListHidden": false,
-            "isDetailHidden": false,
-            "entity": "collection",
-            "slug": "actions_entries_news"
-        },
-        {
-            "type": "reverseLookup",
-            "order": 0,
-            "settings": {
-                "collection": "news_entries",
-                "reverseIsActive": true,
-                "reverseName": "Attached files",
-                "reverseHelp": null
-            },
-            "name": "parent",
-            "displayName": "Parent",
-            "isReadOnly": false,
-            "isRequired": false,
-            "isListHidden": false,
-            "isDetailHidden": false,
-            "isLocalizable": false,
-            "entity": "collection",
-            "slug": "files_entries_news"
-        },
-        {
-            "type": "reverseLookup",
-            "order": 0,
-            "settings": {
-                "collection": "news_entries",
-                "reverseIsActive": true,
-                "reverseName": "Images",
-                "reverseHelp": null
-            },
-            "name": "parent",
-            "displayName": "Parent",
-            "isReadOnly": false,
-            "isRequired": false,
-            "isListHidden": false,
-            "isDetailHidden": false,
-            "isLocalizable": false,
-            "entity": "collection",
-            "slug": "images_entries_news"
         }
     ],
     "description": "News entries list.",

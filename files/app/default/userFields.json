@@ -10,8 +10,6 @@
         "displayName": "User tags",
         "isReadOnly": false,
         "isRequired": false,
-        "isHidden": false,
-        "entity": "user",
-        "slug": "user"
+        "isHidden": false
     }
 ]

@@ -220,62 +220,6 @@
             "isLocalizable": false,
             "entity": "collection",
             "slug": "calendar_entries"
-        },
-        {
-            "type": "reverseLookup",
-            "order": 0,
-            "settings": {
-                "collection": "calendar_entries",
-                "reverseIsActive": true,
-                "reverseName": "Related actions",
-                "reverseHelp": null
-            },
-            "name": "parent",
-            "displayName": "Parent",
-            "isReadOnly": false,
-            "isRequired": true,
-            "isListHidden": false,
-            "isDetailHidden": false,
-            "entity": "collection",
-            "slug": "actions_entries_calendar"
-        },
-        {
-            "type": "reverseLookup",
-            "order": 0,
-            "settings": {
-                "collection": "calendar_entries",
-                "reverseIsActive": true,
-                "reverseName": "Attached files",
-                "reverseHelp": null
-            },
-            "name": "parent",
-            "displayName": "Parent",
-            "isReadOnly": false,
-            "isRequired": true,
-            "isListHidden": false,
-            "isDetailHidden": false,
-            "isLocalizable": false,
-            "entity": "collection",
-            "slug": "files_entries_calendar"
-        },
-        {
-            "type": "reverseLookup",
-            "order": 0,
-            "settings": {
-                "collection": "calendar_entries",
-                "reverseIsActive": true,
-                "reverseName": "Images",
-                "reverseHelp": null
-            },
-            "name": "parent",
-            "displayName": "Parent",
-            "isReadOnly": false,
-            "isRequired": true,
-            "isListHidden": false,
-            "isDetailHidden": false,
-            "isLocalizable": false,
-            "entity": "collection",
-            "slug": "images_entries_calendar"
         }
     ],
     "description": "Calendar entries list.",

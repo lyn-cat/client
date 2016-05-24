@@ -10,7 +10,8 @@
     "lib"
   ],
   "config": {
-
+    "HOST": "lyncat.corus.io",
+    "APP": "dev_lyncat"
   },
   "scripts": {
     "test": "tap test/*.js"

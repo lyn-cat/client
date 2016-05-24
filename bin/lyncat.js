@@ -203,7 +203,7 @@ async.waterfall(
             var table = new Table({
 
                 head: ['Tipo', 'Slug', 'Default?'],
-                colWidths: [20, 60, 10]
+                colWidths: [20, 50, 10]
 
             });
 
@@ -227,20 +227,28 @@ async.waterfall(
 
             console.log(table.toString() + '\n');
 
-            program.promptSingleLine(colors.red('5) ') + 'Se actualizará la app ' + colors.red(CURRENT_APP) + ' del host ' + colors.red(CURRENT_HOST) + ': ¿Quieres continuar? [ ' + colors.green('yes') + ' / ' + colors.red('no') + ' ]: ', function(ok){
+            (function askAgain(){
 
-                if(ok !== 'yes'){
+                program.promptSingleLine(colors.red('5) ') + 'Se actualizará la app ' + colors.red(CURRENT_APP) + ' del host ' + colors.red(CURRENT_HOST) + ': ¿Quieres continuar? [ ' + colors.green('yes') + ' / ' + colors.red('no') + ' ]: ', function(ok){
 
-                    console.log('\n');
-                    process.exit(0);
+                    if(ok === 'no'){
 
-                } else {
+                        console.log('\n');
+                        process.exit(0);
 
-                    return cb(null, json);
+                    } else if(ok === 'yes'){
 
-                }
+                        return cb(null, json);
 
-            });
+                    } else {
+
+                        askAgain();
+
+                    }
+
+                });
+
+            })();
 
         },
 
@@ -251,6 +259,8 @@ async.waterfall(
                 host: CURRENT_HOST,
 
                 app: CURRENT_APP,
+
+                key: CURRENT_KEY,
 
                 progress: function(){
 
@@ -281,10 +291,15 @@ async.waterfall(
 
         if(err){
 
-            console.error(JSON.stringify(err));
+            console.log('\n\nSe ha producido un error:\n');
+            console.error(colors.red(JSON.stringify(err)));
+
+            process.exit(1);
 
         } else {
 
+            console.log('\n\n');
+            console.log(colors.green('Yipi Ka Yei!') + ' La actualización de la app ' + colors.green(CURRENT_APP) + ' en el host ' + colors.green(CURRENT_HOST) + ' ha finalizado con éxito');
             process.exit(0);
 
         }
