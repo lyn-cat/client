@@ -246,32 +246,30 @@ async.waterfall(
 
         function(json, cb){
 
-            var totalUpdates = 0;
+            var updatesCount = lyncat.patch(json, {
 
-            totalUpdates += Object.keys(json.app).length;
-            totalUpdates += Object.keys(json.collections).length;
-            totalUpdates += Object.keys(json.scripts).length;
+                host: CURRENT_HOST,
+
+                app: CURRENT_APP,
+
+                progress: function(){
+
+                    bar.tick();
+
+                }
+
+            }, function(err){
+
+                return cb(err);
+
+            });
 
             var bar = new ProgressBar('   [:bar]  ' + colors.green(':percent') + ' (' + colors.green(':etas') + ')' , {
 
                 complete: '=',
                 incomplete: '-',
-                total: totalUpdates,
+                total: updatesCount,
                 width:84
-
-            });
-
-            lyncat.patch({
-
-                host: CURRENT_HOST,
-                app: CURRENT_APP,
-                json: json,
-                progress: function(){
-                    bar.tick();
-                },
-                complete: function(err){
-                    return cb(err);
-                }
 
             });
 
