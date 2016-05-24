@@ -1,1 +1,0 @@
-Cada vez que actualizamos una aplicación, antes se guardará un export (solo de estructura).
